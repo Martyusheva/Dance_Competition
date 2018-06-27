@@ -1,5 +1,6 @@
 package businesslogic;
 
+import exception.CompetitionNotExistsException;
 import exception.NoRightsException;
 
 import java.util.ArrayList;
@@ -21,14 +22,21 @@ public class ASH extends User {
         competitions.add(competition_);
     }
 
-    public void doReview(Competition competition_){
+    public void doReview(Competition competition_)
+    throws CompetitionNotExistsException{
+        if (!competitions.contains(competition_))
+            throw new CompetitionNotExistsException(competition_.getName());
+
         int judgenum = competition_.getJudges().size();
         if(judgenum<5)
                 setCompetitionStatus(competition_, CompetitionStatus.NEED_REVISION);
         else setCompetitionStatus(competition_, CompetitionStatus.APPROVED);
+        final boolean remove = competitions.remove(competition_);
     }
 
     public void setCompetitionStatus(Competition competition_, CompetitionStatus status_) {
         competition_.setCompetitionStatus(status_);
     }
+
+    public List<Competition> getCompetitions(){ return competitions; }
 }

@@ -22,4 +22,6 @@ public class CountingBoard extends User {
         competitions.add(competition_);
     }
 
+    public List<Competition> getCompetitions(){ return competitions; }
+
 }

@@ -14,15 +14,15 @@ public class User implements UserInterface {
     private int id;
     private String login;
     private String name;
-    private String city;
+    //private String city;
     private boolean authenticated;
     private List<Message> messages;
 
-    public User(int id_, String login_, String name_, String city_, List<Message> messages_) {
+    public User(int id_, String login_, String name_, List<Message> messages_) {
         id = id_;
         login = login_;
         name = name_;
-        city = city_;
+        //city = city_;
         authenticated = false;
         messages = messages_;
     }
@@ -31,7 +31,7 @@ public class User implements UserInterface {
         id = user.id;
         login = user.login;
         name = user.name;
-        city = user.city;
+        //city = user.city;
         authenticated = user.authenticated;
         messages = new ArrayList<>();
     }
@@ -44,9 +44,9 @@ public class User implements UserInterface {
         return name;
     }
 
-    public String getCity() {
-        return city;
-    }
+    //public String getCity() {
+    //    return city;
+    //}
 
     public void signIn(String password) throws DBConnectionException, IncorrectPasswordException {
         (new StorageRepository()).authenticateUser(this, password);
@@ -62,7 +62,7 @@ public class User implements UserInterface {
     }
 
     public String toString() {
-        return  login + ":" + name + "," + city;
+        return  login + ":" + name;
     }
 
     @Override

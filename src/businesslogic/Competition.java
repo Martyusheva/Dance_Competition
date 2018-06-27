@@ -2,12 +2,14 @@ package businesslogic;
 
 import exception.DuplicatedParameterException;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Created by moresmart on 18.06.18.
  */
 public class Competition {
+    private int id;
     private String name;
     private String city;
     private Date date;
@@ -17,6 +19,28 @@ public class Competition {
     private CompetitionStatus status;
     private Set<Judge> judges;
     private Set<Nomination> nominations;
+
+
+    public Competition(String name_, Organizer organizer_){
+        name = name_;
+        organizer = organizer_;
+        judges = new HashSet<>();
+        nominations = new HashSet<>();
+        status = CompetitionStatus.WAITING_FOR_REVIEW;
+    }
+
+    public Competition(int id_, String name_, Organizer organizer_){
+        id = id_;
+        name = name_;
+        organizer = organizer_;
+        judges = new HashSet<>();
+        nominations = new HashSet<>();
+        status = CompetitionStatus.WAITING_FOR_REVIEW;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void setClub(Club club_){ club = club_; }
 
@@ -38,11 +62,18 @@ public class Competition {
         status = status_;
     }
 
+    public int getId() { return id; }
     public String getName(){ return name; }
     public String getCity(){ return city; }
     public Date getDate(){ return  date; }
+    public Organizer getOrganizer(){ return organizer; }
     public Set<Judge> getJudges(){ return judges; }
     public CompetitionStatus getStatus(){ return status; }
     public String getStStatus(){ return status.toString(); }
+    public CountingBoard getCountingBoard(){ return countingBoard; }
+    public Club getClub(){ return  club; }
 
+    public Set<Nomination> getNominations() {
+        return nominations;
+    }
 }

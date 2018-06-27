@@ -7,6 +7,6 @@ import businesslogic.Competition;
  */
 public class CompetitionAlreadyExistsException extends Exception {
     public CompetitionAlreadyExistsException(String competition) {
-        super("Project " + competition + " already exists");
+        super("Competition " + competition + " already exists");
     }
 }
