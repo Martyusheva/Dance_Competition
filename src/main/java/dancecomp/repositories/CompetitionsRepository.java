@@ -27,7 +27,7 @@ public class CompetitionsRepository {
         return CompetitionMapper.getAll().stream().filter(order -> order.getOrganizerId() == user.getId()).collect(Collectors.toList());
     }
 
-    public List<Competition> getAllByCarrier(User user) {
+    public List<Competition> getAllByCountingBoard(User user) {
         return CompetitionMapper.getAll().stream().filter(order -> order.getCountingBoardId() == user.getId()).collect(Collectors.toList());
     }
 }

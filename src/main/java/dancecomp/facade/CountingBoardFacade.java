@@ -22,7 +22,7 @@ public class CountingBoardFacade {
 
     public static List<Competition> getMyComp() {
         User currentUser = UsersRepository.getInstance().getCurrentUserObject();
-        return CompetitionsRepository.getInstance().getAllByCarrier(currentUser);
+        return CompetitionsRepository.getInstance().getAllByCountingBoard(currentUser);
     }
 
     public static List<User> getCountingBoards() {
