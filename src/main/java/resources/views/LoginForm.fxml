@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import dancecomp.gui.* ?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <TabPane fx:id="mainPaneTabs" layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab fx:id="tabLogin" text="Вход">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <TextField fx:id="email" layoutX="174.0" layoutY="108.0" prefWidth="200.0" promptText="Email" text="client@gmail.com" />
+                <PasswordField fx:id="password" layoutX="174.0" layoutY="142.0" prefWidth="200.0" promptText="Пароль" />
+                <Label layoutX="78.0" layoutY="111.0" prefWidth="75.0" text="Ваш email" />
+                <Label layoutX="149.0" layoutY="69.0" prefHeight="30.0" prefWidth="269.0" text="Пожалуйста, представьтесь..." />
+                <Label layoutX="167.0" layoutY="31.0" prefHeight="38.0" prefWidth="192.0" text="Вход в систему">
+                  <font>
+                    <Font size="20.0" />
+                  </font>
+                </Label>
+                <Label layoutX="77.0" layoutY="145.0" prefWidth="98.0" text="Ваш пароль" />
+                <Button fx:id="entryBtn" layoutX="274.0" layoutY="189.0" mnemonicParsing="false" onMouseClicked="#login" text="Вход" />
+                <Button fx:id="closeBtn" layoutX="184.0" layoutY="189.0" mnemonicParsing="false" onMouseClicked="#exit" text="Закрыть" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab fx:id="tabReg" text="Регистрация">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Label layoutX="22.0" layoutY="76.0" text="Полное имя" />
+                <TextField id="fullName" fx:id="nameNew" layoutX="152.0" layoutY="73.0" prefWidth="334.0" />
+                <Label layoutX="22.0" layoutY="111.0" text="E-mail" />
+                <TextField id="email" fx:id="emailNew" layoutX="152.0" layoutY="108.0" prefWidth="334.0" />
+                <Label layoutX="21.0" layoutY="146.0" text="Телефон" />
+                <TextField id="phone" fx:id="phoneNew" layoutX="152.0" layoutY="143.0" prefWidth="334.0" />
+                <Label layoutX="22.0" layoutY="182.0" text="Пароль" />
+                <Label layoutX="22.0" layoutY="216.0" text="Повтор пароля" />
+                <PasswordField fx:id="passwordNew" layoutX="152.0" layoutY="178.0" prefWidth="334.0" />
+                <PasswordField fx:id="repeatPasswordNew" layoutX="152.0" layoutY="212.0" prefWidth="334.0" />
+                <Label layoutX="22.0" layoutY="22.0" text="Роль" />
+                <RadioButton fx:id="organizerRole" layoutX="152.0" layoutY="23.0" mnemonicParsing="false" selected="false" text="Организатор" toggleGroup="$role" />
+                <RadioButton id="CountingBoardRole" fx:id="countingboardRole" layoutX="270.0" layoutY="23.0" mnemonicParsing="false" text="Счетная комиссия" toggleGroup="$role" />
+                <RadioButton fx:id="ashRole" layoutX="425.0" layoutY="23.0" mnemonicParsing="false"  text="АСХ" toggleGroup="$role" />
+                <Button fx:id="createUserBtn" layoutX="190.0" layoutY="294.0" mnemonicParsing="false" onMouseClicked="#createNewUser" text="Регистрация" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+  </children>
+</AnchorPane>

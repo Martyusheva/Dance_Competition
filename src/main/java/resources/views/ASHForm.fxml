@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Файл" visible="true">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#terminate" text="Выход" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+        <TabPane layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+          <tabs>
+            <Tab text="Профиль">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0">
+                  <children>
+                    <Label layoutX="25.0" layoutY="27.0" text="Полное имя" />
+                    <TextField fx:id="fullName" layoutX="155.0" layoutY="24.0" prefWidth="624.0" />
+                    <Label layoutX="25.0" layoutY="62.0" text="E-mail" />
+                    <TextField fx:id="email" layoutX="155.0" layoutY="59.0" prefWidth="624.0" />
+                    <Label layoutX="25.0" layoutY="97.0" text="Телефон" />
+                    <TextField fx:id="phone" layoutX="155.0" layoutY="94.0" prefWidth="624.0" />
+                    <Button fx:id="saveProfileBtn" layoutX="664.0" layoutY="479.0" mnemonicParsing="false" onMouseClicked="#saveProfile" text="Сохранить" />
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Список соревнований">
+              <content>
+                <AnchorPane id="Content" disable="false" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                    <TableView fx:id="listComps" layoutX="0.0" layoutY="0.0" prefHeight="508.0" prefWidth="800.0">
+                      <columns>
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Название" fx:id="name" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Дата" fx:id="date" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="76.0" text="Статус" fx:id="status" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="200.0" text="Комментарии" fx:id="comments" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="575.0" text="Детали" fx:id="details" />
+                      </columns>
+                    </TableView>
+                    <Button id="changeStateToDeliveredBtn" fx:id="saveCompBtn" disable="false" layoutX="690.0" layoutY="529.0" mnemonicParsing="false" onMouseClicked="#saveComp" text="Сохранить" visible="true" />
+                    <ComboBox fx:id="statusesList" layoutX="260.0" layoutY="529.0" prefWidth="190.0">
+                      <items>
+                        <FXCollections fx:factory="observableArrayList">
+                          <String fx:value="Item 1" />
+                          <String fx:value="Item 2" />
+                          <String fx:value="Item 3" />
+                        </FXCollections>
+                      </items>
+                    </ComboBox>
+                    <Label layoutX="261.0" layoutY="511.0" text="Статус:" />
+                    <TextField fx:id="commComp" layoutX="466.0" layoutY="528.0" onKeyTyped="#changeCommComp" prefWidth="200.0" text=" " />
+                    <Label layoutX="468.0" layoutY="512.0" text="Комментарий:" />
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+          </tabs>
+        </TabPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
